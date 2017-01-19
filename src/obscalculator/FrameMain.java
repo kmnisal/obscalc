@@ -37,7 +37,6 @@ public class FrameMain extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtPoa = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         calcButton = new javax.swing.JToggleButton();
         txtEddMm = new javax.swing.JTextField();
@@ -103,11 +102,7 @@ public class FrameMain extends javax.swing.JFrame {
                 txtPoaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtPoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 77, -1));
-
-        jLabel8.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jLabel8.setText("weeks");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 99, -1));
+        getContentPane().add(txtPoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 140, -1));
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel9.setText("EDD");
@@ -258,7 +253,9 @@ public class FrameMain extends javax.swing.JFrame {
         long poa = (a.getTimeInMillis()- b.getTimeInMillis()) / (1000*60*60*24*7);
         //should calculate the difference from miliseconds(365 days/366days). And it is a long value
         
-        txtPoa.setText(poa + "");
+        long poadays = ((a.getTimeInMillis()- b.getTimeInMillis()) / (1000*60*60*24))%7;
+        
+        txtPoa.setText(poa + "" + " weeks "+ poadays + "" + " days");
         
        
         
@@ -328,7 +325,6 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
